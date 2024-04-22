@@ -14,7 +14,6 @@ conda create --name yoloworlddemo python=3.10
 conda activate yoloworlddemo
 
 pip install -r requirements.txt
-
 ```
 
 ### Running the Project

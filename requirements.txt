@@ -1,0 +1,4 @@
+gradio==4.19.2
+inference==0.9.15
+inference-gpu[yolo-world]
+supervision

@@ -6,7 +6,7 @@ import supervision as sv
 from inference.models import YOLOWorld
 
 MARKDOWN = """
-# YoloWGDinoArena
+# YoloWorldDemo
 
 Powered by Roboflow [Inference](https://github.com/roboflow/inference) and 
 [Supervision](https://github.com/roboflow/supervision).

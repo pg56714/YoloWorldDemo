@@ -7,9 +7,7 @@
 Use Anaconda to create a new environment and install the required packages.
 
 ```
-conda info --envs
-
-conda create --name yoloworlddemo python=3.10
+conda create -n yoloworlddemo python=3.10 -y
 
 conda activate yoloworlddemo
 

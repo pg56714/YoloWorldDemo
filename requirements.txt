@@ -1,3 +1,9 @@
-inference[yolo-world]==0.9.13
-supervision==0.18.0
-gradio==4.18.0
+inference[yolo-world]
+supervision
+gradio
+
+# 2024-06-25
+# If there is a conflict, you can use the following versions:
+# inference[yolo-world]==0.12.1
+# supervision==0.21.0
+# gradio==4.26.0

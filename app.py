@@ -22,7 +22,16 @@ IMAGE_EXAMPLES = [
     ],
 ]
 
+# Load models
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/s")
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/m")
 YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/l")
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/x")
+
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-s")
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-m")
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-l")
+# YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-x")
 
 BOUNDING_BOX_ANNOTATOR = sv.BoundingBoxAnnotator()
 MASK_ANNOTATOR = sv.MaskAnnotator()
@@ -82,7 +91,7 @@ def process_image(
 confidence_threshold_component = gr.Slider(
     minimum=0,
     maximum=1.0,
-    value=0.3,
+    value=0.005,
     step=0.01,
     label="Confidence Threshold",
     info=(

@@ -23,17 +23,21 @@ IMAGE_EXAMPLES = [
 ]
 
 # Load models
+YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/l")
+
+# interence：The confidence score values in the new version of YOLO-World are abnormal due to a bug
+# old version not support=============================
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/s")
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/m")
-YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/l")
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/x")
 
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-s")
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-m")
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-l")
 # YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/v2-x")
+# =====================================================
 
-BOUNDING_BOX_ANNOTATOR = sv.BoundingBoxAnnotator()
+BOUNDING_BOX_ANNOTATOR = sv.BoxAnnotator()
 MASK_ANNOTATOR = sv.MaskAnnotator()
 LABEL_ANNOTATOR = sv.LabelAnnotator()
 
@@ -137,8 +141,7 @@ with gr.Blocks() as demo:
 
             image_categories_text_component = gr.Textbox(
                 label="Categories",
-                placeholder="comma separated list of categories",
-                scale=7,
+                placeholder="you can input multiple words with comma (,)",
             )
         yolo_world_output_image_component = gr.Image(
             type="numpy", label="YOLO-WORLD Output"
@@ -173,5 +176,4 @@ with gr.Blocks() as demo:
         ],
     )
 
-# demo.launch(debug=False, show_error=True, max_threads=1)
 demo.launch(debug=False, show_error=True)

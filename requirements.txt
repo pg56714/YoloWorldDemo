@@ -1,9 +1,9 @@
-inference[yolo-world]
+gradio==4.19.2 # The old version runs faster in comparison.
+# inference[yolo-world]
+inference[yolo-world]==0.9.15
+# inference-gpu[yolo-world]==0.9.15
 supervision
-gradio
 
-# 2024-06-25
-# If there is a conflict, you can use the following versions:
-# inference[yolo-world]==0.12.1
-# supervision==0.21.0
-# gradio==4.26.0
+# 2024-07-14
+# interence: The confidence score values in the new version of YOLO-World are abnormal due to a bug
+# inference[yolo-world]==0.14.0

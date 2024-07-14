@@ -46,7 +46,7 @@ def annotate_image(
     input_image: np.ndarray,
     detections: sv.Detections,
     categories: List[str],
-    with_confidence: bool = False,
+    with_confidence: bool = True,
 ) -> np.ndarray:
     labels = [
         (

@@ -69,8 +69,8 @@ def annotate_image(
 def process_image(
     input_image: np.ndarray,
     categories: str,
-    confidence_threshold: float = 0.005,
-    iou_threshold: float = 0.1,
+    confidence_threshold: float,
+    iou_threshold: float,
     with_confidence: bool = True,
 ) -> np.ndarray:
     categories = process_categories(categories)

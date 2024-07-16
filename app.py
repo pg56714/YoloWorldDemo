@@ -72,6 +72,7 @@ def process_image(
     confidence_threshold: float,
     iou_threshold: float,
     with_confidence: bool = True,
+    with_class_agnostic_nms: bool = False,
 ) -> np.ndarray:
     categories = process_categories(categories)
     YOLO_WORLD_MODEL.set_classes(categories)
@@ -79,7 +80,9 @@ def process_image(
         input_image, confidence=confidence_threshold, nms=iou_threshold
     )
     detections = sv.Detections.from_inference(results)
-    detections = detections.with_nms(threshold=iou_threshold)
+    detections = detections.with_nms(
+        class_agnostic=with_class_agnostic_nms, threshold=iou_threshold
+    )
 
     output_image = cv2.cvtColor(input_image, cv2.COLOR_RGB2BGR)
     output_image = annotate_image(
@@ -127,6 +130,11 @@ with_confidence_component = gr.Checkbox(
     info=("Whether to display the confidence of the detected objects."),
 )
 
+with_class_agnostic_nms_component = gr.Checkbox(
+    value=False,
+    label="Use Class-Agnostic NMS",
+    info=("Suppress overlapping bounding boxes across all classes."),
+)
 
 with gr.Blocks() as demo:
     gr.Markdown(MARKDOWN)
@@ -149,6 +157,7 @@ with gr.Blocks() as demo:
         iou_threshold_component.render()
         with gr.Row():
             with_confidence_component.render()
+            with_class_agnostic_nms_component.render()
 
     gr.Examples(
         fn=process_image,
@@ -159,6 +168,7 @@ with gr.Blocks() as demo:
             confidence_threshold_component,
             iou_threshold_component,
             with_confidence_component,
+            with_class_agnostic_nms_component,
         ],
         outputs=[
             yolo_world_output_image_component,
@@ -173,6 +183,7 @@ with gr.Blocks() as demo:
             confidence_threshold_component,
             iou_threshold_component,
             with_confidence_component,
+            with_class_agnostic_nms_component,
         ],
         outputs=[
             yolo_world_output_image_component,

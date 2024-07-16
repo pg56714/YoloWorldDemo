@@ -38,7 +38,6 @@ YOLO_WORLD_MODEL = YOLOWorld(model_id="yolo_world/l")
 # =====================================================
 
 BOUNDING_BOX_ANNOTATOR = sv.BoxAnnotator()
-MASK_ANNOTATOR = sv.MaskAnnotator()
 LABEL_ANNOTATOR = sv.LabelAnnotator()
 
 
@@ -60,8 +59,7 @@ def annotate_image(
         )
         for class_id, confidence in zip(detections.class_id, detections.confidence)
     ]
-    output_image = MASK_ANNOTATOR.annotate(input_image, detections)
-    output_image = BOUNDING_BOX_ANNOTATOR.annotate(output_image, detections)
+    output_image = BOUNDING_BOX_ANNOTATOR.annotate(input_image, detections)
     output_image = LABEL_ANNOTATOR.annotate(output_image, detections, labels=labels)
     return output_image
 

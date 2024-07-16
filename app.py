@@ -131,22 +131,25 @@ with_confidence_component = gr.Checkbox(
 with gr.Blocks() as demo:
     gr.Markdown(MARKDOWN)
     with gr.Row():
-        with gr.Column():
-            input_image_component = gr.Image(type="numpy", label="Input Image")
-            with gr.Accordion("Configuration", open=False):
-                confidence_threshold_component.render()
-                iou_threshold_component.render()
-                with gr.Row():
-                    with_confidence_component.render()
-
-            image_categories_text_component = gr.Textbox(
-                label="Categories",
-                placeholder="you can input multiple words with comma (,)",
-            )
+        input_image_component = gr.Image(type="numpy", label="Input Image")
         yolo_world_output_image_component = gr.Image(
             type="numpy", label="YOLO-WORLD Output"
         )
-    submit_button_component = gr.Button(value="Submit", scale=1, variant="primary")
+
+    with gr.Row():
+        image_categories_text_component = gr.Textbox(
+            label="Categories",
+            placeholder="you can input multiple words with comma (,)",
+            scale=7,
+        )
+        submit_button_component = gr.Button(value="Submit", scale=1, variant="primary")
+
+    with gr.Accordion("Configuration", open=False):
+        confidence_threshold_component.render()
+        iou_threshold_component.render()
+        with gr.Row():
+            with_confidence_component.render()
+
     gr.Examples(
         fn=process_image,
         examples=IMAGE_EXAMPLES,

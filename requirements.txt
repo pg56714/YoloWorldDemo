@@ -1,9 +1,3 @@
-gradio==4.19.2 # The old version runs faster in comparison.
-# inference[yolo-world]
-inference[yolo-world]==0.9.15
-# inference-gpu[yolo-world]==0.9.15
+gradio==4.19.2
+inference-gpu[yolo-world]==0.15.0
 supervision
-
-# 2024-07-14
-# interence: The confidence score values in the new version of YOLO-World are abnormal due to a bug
-# inference[yolo-world]==0.14.0

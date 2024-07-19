@@ -73,6 +73,7 @@ def process_image(
     # with_class_agnostic_nms: bool = True,
 ) -> np.ndarray:
     categories = process_categories(categories)
+    YOLO_WORLD_MODEL.set_classes(categories)
     results = YOLO_WORLD_MODEL.infer(input_image, confidence=confidence_threshold)
     detections = sv.Detections.from_inference(results).with_nms(
         class_agnostic=True, threshold=nms_threshold

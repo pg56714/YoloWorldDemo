@@ -1,5 +1,7 @@
 # YoloWorldDemo
 
+> **Security:** see [SECURITY.md](SECURITY.md) for known dependency issues.
+
 ## Getting Started
 
 ### Installation

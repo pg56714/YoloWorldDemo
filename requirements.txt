@@ -1,4 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cu126
 gradio==6.20.0 # >=6.16 fixes known advisories; newer releases conflict with inference's huggingface-hub pin.
 inference[yolo-world]==1.8.2 # 0.9.13 can no longer be installed (its inference-cli dependency was yanked).
 # inference-gpu[yolo-world]==0.15.0
-supervision
+supervision==0.30.9
+torch==2.14.1+cu126
+torchvision==0.29.1+cu126

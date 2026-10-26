@@ -19,7 +19,3 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
-
-## Security
-
-Dependency upgrades and the known remaining issues are recorded in [docs/security-log.md](docs/security-log.md) ([繁體中文](docs/security-log.zh-TW.md)).
